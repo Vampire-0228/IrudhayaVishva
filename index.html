@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff4c60;
+      --secondary: #1a1a2e;
+      --dark-blue: #0f1b3d;
+      --text-light: #f2f2f2;
+      --btn-blue: #33415c;
+      --btn-hover: #1e2a47;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #ff4c60;
+    }
+
+    .hero {
+      background-color: var(--dark-blue);
+      color: var(--text-light);
+      padding: 50px 5%;
+      border-radius: 15px;
+      margin: 40px auto;
+      max-width: 1100px;
+      position: relative;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 40px;
+    }
+
+    .logo {
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+
+    .menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .menu a, .cta a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .cta a {
+      background-color: var(--btn-blue);
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .cta a:hover {
+      background-color: var(--btn-hover);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .text h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .text h1 span {
+      color: var(--primary);
+    }
+
+    .text p {
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .buttons .resume {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .buttons .contact {
+      background-color: var(--btn-blue);
+      color: white;
+    }
+
+    .buttons .contact:hover {
+      background-color: var(--btn-hover);
+    }
+
+    .image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+
+    }
+
+    .image img {
+      max-width: 90%;
+      height: auto;
+    }
+
+    .socials {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .socials a {
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+ @media screen and (max-width: 768px) {
+  nav {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero, .contact, .about-container {
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .left, .right, .contact-box, .about-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttons button {
+    margin: 10px 0;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  
+
+  <section class="hero">
+    <nav class="nav">
+      <div class="logo">&lt;/Vishva&gt;</div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="#"></a>
+      </div>
+      <div class="">
+        <a href="#"></a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <div class="text">
+        <h2>Hi There</h2>
+        <h1>I'm <span>Irudhaya Vishva</span></h1>
+        <p>I am a App Developer</p>
+        <div class="buttons">
+          <a href="D:\My Website\Resume.pdf" class="resume">Resume</a>
+          <a href="mailto:vishva28.iv@gmail.com" class="contact">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero"></div>
+      <div class="left">
+      <div class="right">
+        <img src="D:\My Website\Developer illustration.jpg" alt="Developer Illustration">
+      </div>
+    </div>
+
+    <div class="socials">
+      <a href="https://github.com/Vampire-0228" title="github"><img src="D:\My Website\Github.png" alt="Github" style="width: 24px; height: 24px;"></a>
+      <a href="https://www.linkedin.com/in/irudhaya-vishva-246b2127a/"  title="linkedin"><img src="D:\My Website\Linkedin.png" alt="Github" style="width: 24px; height: 24px;"></a>
+      <a href="http://t.me/vampirevishva" title="Telegram"><img src="D:\My Website\Telegram.png" alt="Telegram" style="width: 24px; height: 24px;"></a>
+      <a href="mailto:vishva28.iv@gmail.com" title="gmail"><img src="D:\My Website\Gmail.png" alt="Gmail" style="width: 20px; height: 20px;"></a>
+    </div>
+
+
+  </section>
+
+  
+  
+
+</body>
+</html>
+
+
