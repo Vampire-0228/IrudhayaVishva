@@ -182,6 +182,23 @@
   .buttons button {
     margin: 10px 0;
   }
+
+   .profile {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ✅ Mobile-specific override */
+@media screen and (max-width: 768px) {
+  .profile {
+    width: 120px;
+    margin-top: 20px;
+  }
+}
 }
 
 
@@ -219,7 +236,7 @@
       <div class="hero"></div>
       <div class="left">
       <div class="right">
-        <img src="Developer illustration.jpg" alt="Developer Illustration">
+        <img src="Developer illustration.jpg" alt="Developer Illustration" class="profile">
       </div>
     </div>
 
