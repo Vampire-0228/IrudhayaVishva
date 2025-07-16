@@ -208,8 +208,21 @@
   display: block;
   margin: 0 auto;
 }
+.icon-img {
+  width: 24px;
+  height: 24px;
+  filter: none !important;
+  mix-blend-mode: normal;
+  background-color: transparent;
+}
 
-/* ✅ Mobile-specific override */
+/* Optional: Protect against dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  .icon-img {
+    filter: invert(0%) !important;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .profile {
     width: 220px;
@@ -256,10 +269,10 @@
     </div>
 
     <div class="socials">
-      <a href="https://github.com/Vampire-0228" title="github"><img src="Github.png" alt="Github" style="width: 24px; height: 24px;"></a>
-      <a href="https://www.linkedin.com/in/irudhaya-vishva-246b2127a/"  title="linkedin"><img src="Linkedin.png" alt="Github" style="width: 24px; height: 24px;"></a>
-      <a href="http://t.me/vampirevishva" title="Telegram"><img src="Telegram.png" alt="Telegram" style="width: 24px; height: 24px;"></a>
-      <a href="mailto:vishva28.iv@gmail.com" title="gmail"><img src="Gmail.png" alt="Gmail" style="width: 20px; height: 20px;"></a>
+      <a href="https://github.com/Vampire-0228" title="github"><img src="Github.png" alt="Github" style="width: 24px; height: 24px;" class="icon-img"></a>
+      <a href="https://www.linkedin.com/in/irudhaya-vishva-246b2127a/"  title="linkedin"><img src="Linkedin.png" alt="Github" style="width: 24px; height: 24px;" class="icon-img"></a>
+      <a href="http://t.me/vampirevishva" title="Telegram"><img src="Telegram.png" alt="Telegram" style="width: 24px; height: 24px;" class="icon-img"></a>
+      <a href="mailto:vishva28.iv@gmail.com" title="gmail"><img src="Gmail.png" alt="Gmail" style="width: 20px; height: 20px;" class="icon-img"></a>
     </div>
 
 
