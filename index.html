@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Irudhaya Vishva - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff4c60;
+      --dark: #0f172a;
+      --text-light: #f2f2f2;
+      --btn: #334155;
+      --btn-hover: #1e293b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--primary);
+      color: var(--text-light);
+    }
+
+    /* Navigation Bar */
+    nav {
+      padding: 20px 100px;
+      background-color: var(--dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* Section Box Style (Unified) */
+    section {
+      background-color: var(--dark);
+      color: white;
+      padding: 80px 5%;
+      border-radius: 15px;
+      margin: 50px auto;
+      max-width: 1100px;
+      position: relative;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .text h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .text h1 span {
+      color: var(--primary);
+    }
+
+    .text p {
+      margin-bottom: 30px;
+      font-size: 1rem;
+      color: #e2e8f0;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      background-color: var(--btn);
+      color: white;
+    }
+
+    .buttons a:hover {
+      background-color: var(--btn-hover);
+    }
+
+    .buttons .resume {
+      background-color: var(--primary);
+    }
+
+    .image img {
+      max-width: 90%;
+      border-radius: 10px;
+    }
+
+    /* Social Icons */
+    .socials {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .socials a {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+    }
+
+    .icon-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* About, Project, Contact Boxes */
+    .box h2 {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .box p {
+      font-size: 18px;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    .box h3 {
+      font-size: 22px;
+      color: aquamarine;
+      margin-top: 20px;
+    }
+
+    .view-details {
+      color: #f43f5e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Contact Form */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #cbd5e1;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+    }
+
+    .contact-btn {
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-btn:hover {
+      background-color: #e11d48;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--dark);
+      color: #cbd5e1;
+      margin-top: 30px;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      nav {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .socials {
+        position: relative;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 20px;
+        left: 0;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div style="font-weight: bold; font-size: 20px;">&lt;/Vishva&gt;</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="text">
+      <h2>Hi There</h2>
+      <h1>I'm <span>Irudhaya Vishva</span></h1>
+      <p>I am an App Developer passionate about creating efficient and elegant solutions for real-world problems.</p>
+      <div class="buttons">
+        <a href="about.html" class="resume">Resume</a>
+        <a href="#contact">Contact Me</a>
+      </div>
+    </div>
+
+    <div class="image">
+      <img src="D:/My Website/Developer illustration.jpg" alt="Developer Illustration">
+    </div>
+
+    <!-- Social Links -->
+    <div class="socials">
+      <a href="https://github.com/Vampire-0228" target="_blank" title="GitHub">
+        <img src="Github.png" alt="GitHub" style="width: 30px; height: 30px;" class="icon-img">
+      </a>
+      <a href="https://www.linkedin.com/in/irudhaya-vishva-246b2127a/" target="_blank" title="LinkedIn">
+        <img src="Linkedin.png" alt="LinkedIn" style="width: 30px; height: 30px;" class="icon-img">
+      </a>
+      <a href="http://t.me/vampirevishva" target="_blank" title="Telegram">
+        <img src="Telegram.png" alt="Telegram" style="width: 30px; height: 30px;" class="icon-img">
+      </a>
+      <a href="mailto:vishva28.iv@gmail.com" title="Gmail">
+        <img src="Gmail.png" alt="Gmail" style="width: 24px; height: 24px;" class="icon-img">
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="box">
+    <h2>About Me</h2>
+    <p>
+      I'm Irudhaya Vishva, an enthusiastic and detail-oriented Application Developer with a passion for building scalable, user-first apps.
+      I enjoy working across the stack — from intuitive UIs to robust backends. I'm always learning, building, and excited to solve
+      new challenges with clean code and creative thinking.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="box">
+    <h2>Projects</h2>
+
+    <h3>Chamberly</h3>
+    <p>
+      Chamberly is an Android mobile application that enables users to connect with listeners through private 1-on-1 chats.
+      <br><br>
+      <a href="https://github.com/Vampire-0228/Chamberly/tree/master" target="_blank" class="view-details">View Details →</a>
+    </p>
+
+    <h3>NotesMy</h3>
+    <p>
+      NotesMy is a fast and effective note-taking app with features like adding and viewing notes. Built using Java and SQLite,
+      it ensures data persistence while maintaining a user-friendly experience.
+      <br><br>
+      <a href="https://github.com/Vampire-0228/Notesmy" target="_blank" class="view-details">View Details →</a>
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="box">
+    <h2>Contact Me</h2>
+    <form action="mailto:vishva28.iv@gmail.com" method="POST" enctype="text/plain">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="contact-btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Irudhaya Vishva | All Rights Reserved
+  </footer>
+
+</body>
+</html>
