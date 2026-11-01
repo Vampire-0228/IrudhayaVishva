@@ -300,7 +300,80 @@
         transform: none;
       }
     }
-  </style>
+  
+
+    /* Photo Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .gallery-item {
+      display: block;
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      background: #1e293b;
+      cursor: zoom-in;
+      text-align: left;
+    }
+    .gallery-item img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      transition: transform .25s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.035); }
+    .gallery-caption {
+      display: block;
+      padding: 12px;
+      color: #e2e8f0;
+      font-size: .9rem;
+    }
+    .gallery-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(2, 6, 23, .94);
+    }
+    .gallery-lightbox.is-open { display: flex; }
+    .gallery-lightbox img {
+      display: block;
+      max-width: min(92vw, 900px);
+      max-height: 84vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .gallery-lightbox button {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: #334155;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .gallery-caption { padding: 9px; font-size: .8rem; }
+    }
+    @media (max-width: 380px) {
+      .gallery-grid { gap: 8px; }
+    }
+</style>
 </head>
 <body>
 
@@ -454,6 +527,44 @@
     </form>
   </section>
 
+
+
+  <!-- Photo Gallery -->
+  <section id="gallery" class="box">
+    <h2>My Gallery</h2>
+    <p style="margin-bottom: 24px;">A few moments from my personal, academic, and professional journey.</p>
+    <div class="gallery-grid">
+      <button class="gallery-item" type="button" data-gallery-image="images/irudhaya-vishva-green-wall-portrait.webp" aria-label="View Irudhaya Vishva standing portrait">
+        <img src="images/irudhaya-vishva-green-wall-portrait.webp" alt="Irudhaya Vishva standing in front of a vertical garden" loading="lazy" width="900" height="1200">
+        <span class="gallery-caption">A personal portrait</span>
+      </button>
+      <button class="gallery-item" type="button" data-gallery-image="images/irudhaya-vishva-campus-portrait.webp" aria-label="View Irudhaya Vishva campus portrait">
+        <img src="images/irudhaya-vishva-campus-portrait.webp" alt="Irudhaya Vishva on a college campus" loading="lazy" width="900" height="1200">
+        <span class="gallery-caption">Campus moments</span>
+      </button>
+      <button class="gallery-item" type="button" data-gallery-image="images/irudhaya-vishva-glasses-portrait.webp" aria-label="View Irudhaya Vishva portrait wearing glasses">
+        <img src="images/irudhaya-vishva-glasses-portrait.webp" alt="Portrait of Irudhaya Vishva wearing glasses" loading="lazy" width="900" height="1200">
+        <span class="gallery-caption">Portrait</span>
+      </button>
+      <button class="gallery-item" type="button" data-gallery-image="images/irudhaya-vishva-classroom-event.webp" aria-label="View Irudhaya Vishva at a college event">
+        <img src="images/irudhaya-vishva-classroom-event.webp" alt="Irudhaya Vishva attending a college classroom event" loading="lazy" width="900" height="1200">
+        <span class="gallery-caption">College event</span>
+      </button>
+      <button class="gallery-item" type="button" data-gallery-image="images/irudhaya-vishva-smiling-portrait.webp" aria-label="View smiling portrait of Irudhaya Vishva">
+        <img src="images/irudhaya-vishva-smiling-portrait.webp" alt="Smiling portrait of Irudhaya Vishva" loading="lazy" width="900" height="1200">
+        <span class="gallery-caption">A candid moment</span>
+      </button>
+      <button class="gallery-item" type="button" data-gallery-image="images/irudhaya-vishva-outdoor-portrait.webp" aria-label="View Irudhaya Vishva outdoor portrait">
+        <img src="images/irudhaya-vishva-outdoor-portrait.webp" alt="Irudhaya Vishva outdoors in a striped polo shirt" loading="lazy" width="900" height="1200">
+        <span class="gallery-caption">Outdoors</span>
+      </button>
+    </div>
+  </section>
+
+  <div class="gallery-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Expanded gallery image">
+    <button type="button" id="gallery-close" aria-label="Close image viewer">&times;</button>
+    <img id="gallery-lightbox-image" src="" alt="">
+  </div>
   <footer>
     © 2025 Irudhaya Vishva | All Rights Reserved
   </footer>
@@ -513,7 +624,36 @@
           });
       });
     })();
-  </script>
+  
+
+      // Accessible photo gallery lightbox
+      var galleryLightbox = document.getElementById('gallery-lightbox');
+      var galleryLightboxImage = document.getElementById('gallery-lightbox-image');
+      var galleryClose = document.getElementById('gallery-close');
+      document.querySelectorAll('[data-gallery-image]').forEach(function (item) {
+        item.addEventListener('click', function () {
+          var imagePath = item.getAttribute('data-gallery-image');
+          var thumbnail = item.querySelector('img');
+          galleryLightboxImage.src = imagePath;
+          galleryLightboxImage.alt = thumbnail ? thumbnail.alt : 'Gallery photograph';
+          galleryLightbox.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+          galleryClose.focus();
+        });
+      });
+      function closeGalleryLightbox() {
+        galleryLightbox.classList.remove('is-open');
+        galleryLightboxImage.src = '';
+        document.body.style.overflow = '';
+      }
+      galleryClose.addEventListener('click', closeGalleryLightbox);
+      galleryLightbox.addEventListener('click', function (event) {
+        if (event.target === galleryLightbox) closeGalleryLightbox();
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && galleryLightbox.classList.contains('is-open')) closeGalleryLightbox();
+      });
+</script>
 </body>
 </html>
 
